@@ -1,10 +1,10 @@
-const crypto = require('crypto');
+const { createDecipheriv } = require('crypto');
 const { Transform } = require('stream');
 
 class LazyDecipheriv extends Transform {
   constructor(algorithm, key, iv, options) {
     super();
-    this.decipher = crypto.createDecipheriv(algorithm, key, iv, options);
+    this.decipher = createDecipheriv(algorithm, key, iv, options);
     this._authTagIsSet = false;
     this.isAuthenticated = false;
 
