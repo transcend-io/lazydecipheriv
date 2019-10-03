@@ -10,7 +10,7 @@
 const createLazyDecipheriv = require('@transcend-io/lazydecipheriv');
 const decipher = createLazyDecipheriv('aes-256-gcm', key, iv);
 
-await stream.pipeline(
+await pipeline(
   readable,
   decipher,
   writable,
