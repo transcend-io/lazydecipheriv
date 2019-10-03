@@ -1,8 +1,10 @@
 # Lazy Decipheriv
 
+`createDecipheriv`, but `setAuthTag` later.
+
 Problem: In Node, it's required to `decipher.setAuthTag()` _before_ beginning a decipher stream.
 
-`createLazyDecipheriv` is like `createDecipheriv`, but you can check the authTag later.
+`createLazyDecipheriv` is just like `createDecipheriv`, but you can check the authTag later.
 
 ## Usage
 
