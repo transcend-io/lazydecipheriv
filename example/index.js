@@ -5,7 +5,7 @@ const stream = require('stream');
 
 const pipeline = util.promisify(stream.pipeline);
 
-const { createLazyDecipheriv } = require('..');
+const createLazyDecipheriv = require('..');
 
 const key = Buffer.from("abcdefghijklmnopqrstuvwxyz012345");
 const iv = Buffer.from("0123456789ab");

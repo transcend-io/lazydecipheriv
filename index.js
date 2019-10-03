@@ -7,6 +7,12 @@ class LazyDecipheriv extends Transform {
     this.decipher = crypto.createDecipheriv(algorithm, key, iv, options);
     this._authTagIsSet = false;
     this.isAuthenticated = false;
+
+    ['final', 'setAAD', 'setAutoPadding', 'update'].forEach(fn => {
+      this[fn] = function(...args) {
+        this.decipher[fn].call(this.decipher, ...args);
+      }
+    })
   }
 
   _transform(chunk, encoding, callback) {
