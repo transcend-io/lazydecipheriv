@@ -42,4 +42,4 @@ function createLazyDecipheriv(algorithm, key, iv, options) {
   return new LazyDecipheriv(algorithm, key, iv, options);
 }
 
-module.exports.createLazyDecipheriv = createLazyDecipheriv;
+module.exports = createLazyDecipheriv;
