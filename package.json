@@ -1,5 +1,5 @@
 {
-  "name": "lazydecipheriv",
+  "name": "@transcend-io/lazydecipheriv",
   "version": "1.0.0",
   "description": "createDecipheriv, but setAuthTag later.",
   "main": "index.js",
