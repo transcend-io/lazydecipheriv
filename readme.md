@@ -17,7 +17,7 @@ await stream.pipeline(
 );
 
 decipher.setAuthTag(authTag);
-console.log(decipher.isAuthenticated) // => true
+console.log(decipher.isAuthenticated); // => true
 ```
 
 ### Error handling invalid authentications tags
