@@ -1,6 +1,6 @@
 # Lazy Decipheriv
 
-`createDecipheriv`, but `setAuthTag` later.
+`crypto.createDecipheriv()`, but `decipher.setAuthTag()` later.
 
 ## Problem Solved
 
