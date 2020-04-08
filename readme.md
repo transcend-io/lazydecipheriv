@@ -4,7 +4,7 @@
 
 ## Problem Solved
 
-In Node, it's required to `decipher.setAuthTag()` _before_ beginning a decipher stream - but that's an arbitrary constraint.
+In Node, it's required to `decipher.setAuthTag()` _before_ beginning a decipher stream - but that's an arbitrary constraint which makes it highly inefficient when streaming between an encryption stream and a decryption stream.
 
 This is wrapper of `crypto.createDecipheriv` which removes that constraint.
 
