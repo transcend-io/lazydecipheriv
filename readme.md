@@ -14,7 +14,7 @@ By nature, when using authenticated encryption (such as Galois/Counter Mode), a 
 
 Where you have **Cipher Stream** --> **Decipher Stream**, requiring that the authentication tag be set on the decipher stream before starting it means you must wait until you are finished enciphering before you can begin deciphering. In effect, it's not streaming at all.
 
-Thus, Node's `createDecipheriv` is easy to use (it requires minimal error handling), but highly inefficient when streaming between an encryption to a decryption stream.
+Thus, Node's `createDecipheriv` is easy to use (it requires minimal error handling), but highly inefficient when streaming between an encryption stream and a decryption stream.
 
 Since decipher streams fundamentally do not require an authentication tag to begin streaming, this package removes that constraint, and allows you to set the authentication tag later.
 
