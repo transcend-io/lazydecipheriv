@@ -34,7 +34,7 @@ decipher.setAuthTag(authTag);
 console.log(decipher.isAuthenticated); // => true
 ```
 
-### Handling invalid authentications tags
+### Handling invalid authentication tags
 
 An invalid authTag passed to `decipher.setAuthTag()` will throw the same error that `decipher.final()` would. If the authTag is set before the decipher is finished, then the stream will throw when it is done. You can also check `decipher.isAuthenticated` to see if the integrity check has passed yet.
 
