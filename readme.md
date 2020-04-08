@@ -4,11 +4,13 @@
 
 ## Problem Solved
 
-In Node, it's required to `decipher.setAuthTag()` _before_ beginning a decipher stream. 
+By nature, when using authenticated encryption (such as Galois/Counter Mode), a cipher stream must finish streaming (thereby seeing all data) in order to calculate the authentication tag. A decipher stream does _not_ require an authentication tag to begin streaming. However, in Node, it's required to set the authentication tag for a decipher stream with `decipher.setAuthTag()`, _before_ beginning a decipher stream. 
 
-Where **Stream A** --> **Stream B**, **Stream A** must finish streaming in order to calculate the authTag. Before now, **Stream B** couldn't start streaming until the authTag was received (so in effect, it's not streaming at all).
+Where you have **Cipher Stream** --> **Decipher Stream**, requiring that the authentication tag be set on the decipher stream before starting it means you must wait until you are finished ciphering before beginning deciphering. In effect, it's not streaming at all.
 
-Thus, Node's `createDecipheriv` is easy to use (virtually zero error handling), but highly inefficient when streaming between an encryption to a decryption stream.
+Thus, Node's `createDecipheriv` is easy to use (it requires minimal error handling), but highly inefficient when streaming between an encryption to a decryption stream.
+
+Since decipher streams fundamentally do not require an authentication tag to begin streaming, this package removes that constraint, and allows you to set the authentication tag later.
 
 ## Usage
 
